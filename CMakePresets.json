@@ -1,0 +1,28 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    { "name": "generic", "inherits": "base", "displayName": "generic (one binary for CPU and GPU, JIT)",
+      "cacheVariables": { "IFGF_ACPP_TARGETS": "generic" } },
+    { "name": "cuda-sm80", "inherits": "base", "displayName": "CUDA sm_80 (A100)",
+      "cacheVariables": { "IFGF_ACPP_TARGETS": "cuda:sm_80" } },
+    { "name": "cuda-sm86", "inherits": "base", "displayName": "CUDA sm_86 (A40, RTX 30xx)",
+      "cacheVariables": { "IFGF_ACPP_TARGETS": "cuda:sm_86" } },
+    { "name": "cuda-sm90", "inherits": "base", "displayName": "CUDA sm_90 (H100, H200)",
+      "cacheVariables": { "IFGF_ACPP_TARGETS": "cuda:sm_90" } },
+    { "name": "cpu", "inherits": "base", "displayName": "CPU only (OpenMP)",
+      "cacheVariables": { "IFGF_ACPP_TARGETS": "omp.library-only" } }
+  ],
+  "buildPresets": [
+    { "name": "generic", "configurePreset": "generic" },
+    { "name": "cuda-sm80", "configurePreset": "cuda-sm80" },
+    { "name": "cuda-sm86", "configurePreset": "cuda-sm86" },
+    { "name": "cuda-sm90", "configurePreset": "cuda-sm90" },
+    { "name": "cpu", "configurePreset": "cpu" }
+  ]
+}

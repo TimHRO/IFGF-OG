@@ -1,0 +1,6 @@
+# ifgf package: find_package(ifgf CONFIG REQUIRED), then link ifgf::ifgf_library
+# (shared library with the plain C++17 API header <ifgf/ifgf_library.hpp>; no SYCL needed by the caller).
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/ifgfTargets.cmake")
+check_required_components(ifgf)
