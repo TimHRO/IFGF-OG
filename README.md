@@ -1,5 +1,5 @@
 # IFGF-OG
-### Interpolated Factored Green Function Evaluation on GPUs
+### Interpolated Factored Green Function on GPUs
 
 IFGF-OG is a GPU-accelerated implementation of the **Interpolated Factored Green Function (IFGF)** method, originally introduced in:
 
@@ -65,15 +65,6 @@ Expected on an NVIDIA A40 (`cuda:sm_86`, single layer, P = 8, leaf size 300, bes
 
 
 The double layer and the combined field take 696 ms at κ = 300 (errors 5.8e-6 and 1.5e-6). At κ = 300 the setup takes about 1.4 s and the operator holds about 16 GB of device memory.
-
-To see how much the JIT path costs against ahead-of-time compilation on your GPU, run
-
-```bash
-CMAKE_ARGS="-DCMAKE_CXX_COMPILER=/path/to/clang++ -DAdaptiveCpp_DIR=/path/to/adaptivecpp/lib/cmake/AdaptiveCpp" \
-  scripts/compare_targets.sh sm_86          # add "full" for the 1.57M point case
-```
-
-It builds `face_test` for `cuda:sm_86` and for `generic` and prints the apply times of both.
 
 ## Use the library
 
