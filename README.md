@@ -14,7 +14,7 @@ This is the first public version (0.1.0). It contains the engine, an example tha
 - **Boundary integral operators:** Single-layer (SL), double-layer (DL), combined-field (CF) and hypersingular (HS) operators for scalar and vector-valued densities, including complex wavenumbers
 - **High-frequency stability:** Demonstrated stability at high frequencies, with the largest test case reaching κD = 1000
 - **Adaptive geometry handling:** Efficient treatment of inhomogeneous geometries using an adaptive octree
-- **Cube-face cones:** the interpolation domains of every box are cones over the six faces of a cube, so the map from a child box to its parent is separable per axis
+- **Interpolation in pyramidal frusta:** around every box, space is split into six pyramids over the faces of a cube and subdivided into smaller cells.
 - **Multi-wavenumber evaluation (in preparation):** evaluation of operators for multiple complex wavenumbers using a single initialization, for Convolution Quadrature and Model Order Reduction. The library API already accepts the wavenumber range of an initialization (`maxk`, `minSigma`, `tolerance`); in 0.1.0 these parameters have no effect yet
 
 ## Requirements
